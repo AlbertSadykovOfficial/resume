@@ -1,0 +1,14 @@
+<script>
+			[
+				location.origin+'/js/path.js',
+				location.origin+'/js/themes/dark_theme.js',
+				location.origin+'/js/themes/bind_theme_by_session.js',
+
+        location.origin+'/js/garbage.js'
+      ].forEach(function(src){
+          let script = document.createElement('script');
+          script.src = src;
+          script.async = false;
+          document.head.appendChild(script);
+      });
+</script>

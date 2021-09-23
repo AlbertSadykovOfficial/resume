@@ -1,0 +1,29 @@
+<script>
+			[
+				location.origin+'/pages/app/view/js/bind_json.js',
+
+				location.origin+'/pages/app/view/js/html_elements/elements.js',
+
+				location.origin+'/pages/app/view/js/structures/structures.js',
+				location.origin+'/pages/app/view/js/structures/field_types.js',
+				location.origin+'/pages/app/view/js/structures/mirror_replication.js',
+
+				location.origin+'/pages/app/form/js/create_table.js',
+				location.origin+'/pages/app/form/js/addons.js',
+				location.origin+'/pages/app/form/js/create_elements.js',
+				location.origin+'/pages/app/form/js/grab.js',
+				location.origin+'/pages/app/form/js/paginator.js',
+
+				location.origin+'/pages/app/form/js/create_form.js',
+				location.origin+'/pages/app/form/js/bind_data.js',
+				location.origin+'/js/themes/dark_theme.js',
+				location.origin+'/js/themes/bind_theme_by_session.js',
+
+        location.origin+'/js/garbage.js'
+      ].forEach(function(src){
+          let script = document.createElement('script');
+          script.src = src;
+          script.async = false;
+          document.head.appendChild(script);
+      });
+</script>

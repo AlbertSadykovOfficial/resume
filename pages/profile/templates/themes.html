@@ -1,0 +1,91 @@
+<script>
+    function dark_mode()
+    {
+        elems = document.getElementsByClassName('btn-dark');
+        for (let i=0; i<elems.length; i++)
+        {
+            elems[i].classList.add('btn-light')
+            elems[i].classList.remove('btn-dark');
+        }
+        elems = document.getElementsByClassName('card-footer');
+        for (let i=0; i<elems.length; i++)
+        {
+            elems[i].style = "background-color: rgb(45, 50, 57) !important";
+            if ( elems[i].getElementsByClassName('text-dark')[0] )
+            {
+                elems[i].getElementsByClassName('text-dark')[0].classList.add(...['text-light']);
+                elems[i].getElementsByClassName('text-dark')[0].classList.remove(...['text-dark']);
+            }
+        }
+
+        document.getElementsByTagName('body')[0].classList.add(...['bg-dark', 'text-light']);
+        document.getElementsByTagName('nav')[0].classList.add(...['navbar-dark', 'bg-dark']);
+        document.getElementById('navbar_img').src = location.origin+"/imgs/logow.png";
+
+        document.getElementById('theme_button').innerHTML = "Light";
+        document.getElementById('theme_button').classList.remove("btn-dark");
+        document.getElementById('theme_button').classList.add("btn-light");
+        document.getElementById('theme_button').setAttribute("onclick", "mode(light_mode)")
+    }
+
+    function light_mode()
+    {
+        elems = document.getElementsByClassName('btn-light');
+        for (let i=0; i<elems.length; i++)
+        {
+            elems[i].classList.add('btn-dark')
+            elems[i].classList.remove('btn-light');
+        }
+        
+        elems = document.getElementsByClassName('card-footer');
+        for (let i=0; i<elems.length; i++)
+        {
+            elems[i].style = "";
+            if ( elems[i].getElementsByClassName('text-light')[0] )
+            {
+                elems[i].getElementsByClassName('text-light')[0].classList.add(...['text-dark']);
+                elems[i].getElementsByClassName('text-light')[0].classList.remove(...['text-light']);
+            }
+        }
+
+        document.getElementsByTagName('body')[0].classList.remove(...['bg-dark', 'text-light']);
+        document.getElementsByTagName('nav')[0].classList.remove(...['navbar-dark', 'bg-dark']);
+        document.getElementById('navbar_img').src = location.origin+"/imgs/logob.png";
+            
+        document.getElementById('theme_button').innerHTML = "Dark";
+        document.getElementById('theme_button').classList.remove("btn-light");
+        document.getElementById('theme_button').classList.add("btn-dark");
+        document.getElementById('theme_button').setAttribute("onclick", "mode(dark_mode)")
+    }
+    function default_mode()
+    {
+        let now = new Date();
+        let sunrise = 9;
+        let sunset = 20;
+
+        if (sunrise < now.getHours() && now.getHours() < sunset)
+                light_mode();
+        else
+                dark_mode();
+
+        if (sunrise <= now.getHours() && now.getHours() <= sunset)
+        {
+                let date = new Date();
+                date.setHours(sunset,0,0);
+                setTimeout(dark_mode, date - new Date());
+        }
+        else if ((0 < now.getHours() && now.getHours() < sunrise))
+        {
+                let date = new Date();
+                date.setHours(sunrise,0,0);
+                setTimeout(light_mode, date - new Date());
+        }
+        else if (now.getHours() > sunset && 24 < now.getHours())
+        {
+                let date = new Date();
+                date.setDate(date.getDate() + 1);
+                date.setHours(sunrise,0,0);
+                setTimeout(light_mode, date - new Date())
+        }
+    }
+</script>

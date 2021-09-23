@@ -1,0 +1,37 @@
+<script>
+      [
+      	//location.origin+'/pages/app/view/js/block_console.js',
+      	location.origin+'/pages/app/view/js/bind_json.js',
+
+        location.origin+'/pages/app/view/js/pdf/reposition.js',
+        location.origin+'/pages/app/view/js/html_elements/elements.js',
+        location.origin+'/pages/app/view/js/data_object/data_object.js',
+        location.origin+'/pages/app/view/js/OLD/main_outer.js',
+
+        location.origin+'/pages/app/view/js/structures/structures.js',
+        location.origin+'/pages/app/view/js/blocks.js',
+        location.origin+'/pages/app/view/js/config.js',
+        location.origin+'/pages/app/view/js/data_object/json_test.js',
+
+        location.origin+'/pages/app/view/js/cards_templates/ul_profile.js',
+        location.origin+'/pages/app/view/js/cards_templates/project_card_constructor.js',
+        location.origin+'/pages/app/view/js/cards_templates/education_card.js',
+        location.origin+'/pages/app/view/js/cards_templates/language_card.js',
+
+        location.origin+'/pages/app/view/js/main.js',
+        location.origin+'/js/themes/dark_theme.js',
+        location.origin+'/pages/app/view/js/pdf/pdf.js',
+        location.origin+'/pages/app/view/js/pdf/html2canvas.js',
+        location.origin+'/js/themes/bind_theme_by_session.js',
+
+        'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js',
+        'https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js',
+
+        location.origin+'/js/garbage.js'
+      ].forEach(function(src){
+          let script = document.createElement('script');
+          script.src = src;
+          script.async = false;
+          document.head.appendChild(script);
+      });
+</script>
