@@ -13,8 +13,7 @@ const field =
 
                         "github": TEXT,
                         "git_first": CHECKBOX,
-                        "git_not_include": TEXT
-                        
+                        "git_not_include": TEXT 
                     },
 
     "profile_title" :

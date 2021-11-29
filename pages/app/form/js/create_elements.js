@@ -13,7 +13,6 @@ function create_input(name, description)
 		element.title = description;
 		element.placeholder = description;
 		return element.outerHTML;
-		//return "<input type='text' class='form-control INPUT_FIELD' name='"+name+"' title='"+description+"' placeholder='"+description+"'>";
 }
 
 
@@ -26,7 +25,6 @@ function create_textarea(name, description)
 		element.placeholder = description;
 		element.style.width='100%';
 		return element.outerHTML;
-		//return "<textarea style='width:100%' class='INPUT_FIELD' name='"+name+"' title='"+description+"' placeholder='"+description+"'></textarea>";
 }
 
 
@@ -38,7 +36,6 @@ function create_checkbox(name, description)
 		element.name = name;
 		element.value = 0;
 		return element.outerHTML+description+"<br />";
-		//return "<input type='checkbox' class='INPUT_FIELD' name='"+name+"' value=0> "+description+"<br />";
 }
 
 
@@ -115,7 +112,6 @@ function create_form()
 								print_input_row(template);
 						}
 
-						//document.getElementById('content').insertAdjacentHTML('beforeEnd', "<div>"+mirror[templates][0]["recomendation"]+"</div>");
 						document.getElementById(templates).insertAdjacentHTML('beforeEnd', "<div>"+mirror[templates][0]["recomendation"]+"</div>");
 						if (!['profile_card', 'profile_title', 'about_me'].includes(templates))
 						{
@@ -124,7 +120,6 @@ function create_form()
 						}
 						else
 						{
-								//document.getElementById('content').insertAdjacentHTML('beforeEnd', "<br>");
 								document.getElementById(templates).insertAdjacentHTML('beforeEnd', "<hr/>");
 						}
 

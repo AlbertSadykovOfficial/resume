@@ -6,7 +6,7 @@ function trim_results(arr)
     }
     return arr;
 }
-function select_filelds(data, not_include_this_repos)
+function select_fields(data, not_include_this_repos)
 {
     second_line_projects = [];
     first_line_projects = [];

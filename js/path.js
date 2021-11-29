@@ -5,17 +5,17 @@ function redirect_to(way)
 
 function load_count(object)
 {
-		object.dataset.loadcount++;
+	object.dataset.loadcount++;
 
-		if (object.dataset.loadcount > 2)
-			return false
-		else
-			return true
+	if (object.dataset.loadcount > 2)
+		return false
+	else
+		return true
 }
 
 function change_src(object, way)
 {
-		if(load_count(object))
+	if(load_count(object))
     	object.src = location.origin + way;
     else
     	object.src = ""; 
@@ -24,7 +24,7 @@ function change_src(object, way)
 
 function copy_link(way)
 {
-		let textToCopy = location.origin + way;
+	let textToCopy = location.origin + way;
     // navigator clipboard api needs a secure context (https)
     if (navigator.clipboard && window.isSecureContext) 
     {

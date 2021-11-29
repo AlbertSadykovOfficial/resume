@@ -36,28 +36,31 @@ function transform(array_of_objects)
 
 function load_data_from_github(data, user, not_include_this_repos)
 {
-  //$.get( "https://api.github.com/users/AlbertSadykovOfficial/repos", function( git_repos ) {
+    let request = "";
     
-    // Отбираем нужные нам поля
-    // Затем переводим массив объектов в массив массивов
-    let git_repos = select_filelds(data_object, not_include_this_repos);
-    git_repos = transform(git_repos);
+    //ajaxRequest("GET", "https://api.github.com/users/"+user+"/repos", request, function(Request) {
+      //data_object = JSON.parse(Request.responseText)
 
-    // 6 позиция массива указывает что выводить первым, 
-    // Если 1 - Сначала git-репозитории, 
-    // Если другое - сначала введенные вручную проекты
-    if (data['profile_card'][0][6] == '1')
-    {
-        data['project_card'] = git_repos.concat(data['project_card']);
-    }
-    else
-    {
-        data['project_card'] = data['project_card'].concat(git_repos);
-    }
+      // Отбираем нужные нам поля
+      // Затем переводим массив объектов в массив массивов
+      let git_repos = select_fields(data_object, not_include_this_repos);
+      git_repos = transform(git_repos);
 
-    bind_data_from_storage(data);
-    push_langs(select_filelds(data_object, not_include_this_repos));
- // });
+      // 6 позиция массива указывает что выводить первым, 
+      // Если 1 - Сначала git-репозитории, 
+      // Если другое - сначала введенные вручную проекты
+      if (data['profile_card'][0][6] == '1')
+      {
+          data['project_card'] = git_repos.concat(data['project_card']);
+      }
+      else
+      {
+          data['project_card'] = data['project_card'].concat(git_repos);
+      }
+
+      bind_data_from_storage(data);
+      push_langs(select_fields(data_object, not_include_this_repos));
+    //});
 }
 
 function load()
@@ -87,7 +90,7 @@ load();
 *  Заполнить данные из localStorage
 *  
 *  ! Внимание - опасная конструкция eval
-*       databases,     AlbertSadykovOfficial,     System_Administration,     Data_Science,     Docker,     DJANGO_LESSONS,     Grokking-Algorithms,     Python,    php7,     WEB_LESSONS
+*
 */
 function bind_data_from_storage(data)
 {
@@ -115,7 +118,7 @@ function bind_data_from_storage(data)
 
 
 /*
-*  Звполнить данные по умолчанию
+*  Заполнить данные по умолчанию
 *
 *
 */
@@ -148,7 +151,7 @@ function bind_default_data()
     about_me = create_block('simple_object','Обо мне', ['За годы, проведенные в ВУЗе, мною были опробованы раличные виды деятельности, связанные с информационными технологиям. Не всё, что я пробовал, увлекло меня, но, к примеру, работа в Photoshop все еще остается со мной, хоть и не является моим основным направлением. На данный момент у меня сформировалось предтсавление о том, чем я хочу заниматься, эти делом оказалась - Разработка Программного Обеспечения']);
     table = create_block('table', 'Стек технологий',
                             [
-                              [ // ПОЧЕМУ ТАК ?????????????
+                              [
                                 [ "Имя" ],[ "Технологии" ]
                               ],
                               [
